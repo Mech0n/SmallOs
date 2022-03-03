@@ -99,7 +99,7 @@ impl Writer {
 
 /// test the struct : Writer 
 pub fn vga_buffer_test() {
-    use core::fmt::Write;   // for the last line code which use write!/writeln! marcos in the block
+    use core::fmt::Write;   // for the last line code which use write!/writeln! marcos in the block.
 
     let mut writer = Writer {   // must be mutable
         column_position : 0,
@@ -111,5 +111,6 @@ pub fn vga_buffer_test() {
     writer.write_string("Hello ");
     writer.write_string("Wörld! ");
     write!(writer, "The numbers are {} and {}", 42, 1.0/3.0).unwrap();
+
 }
 
