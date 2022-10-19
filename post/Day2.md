@@ -88,6 +88,30 @@ One variable use `volatile` ask the compiler not to optimize this variable.`vola
 
 In Rust, `volatile` is a [crate](https://docs.rs/volatile/latest/volatile/struct.Volatile.html)
 
+##### macro
+
+See the example from rustwiki.
+To write a macro, you need the prefix `macro_rules`, and the macro's form likes a match. 
+
+```rust
+macro_rules! say_hello {
+    () => (
+        println!("Hello!");
+    )
+}
+```
+In this example,  `()` represents that this macro function don't accept args.
+
+```rust
+#[macro_export]
+macro_rules! print {
+    ($($arg:tt)*) => ($crate::vga_buffer::_print(format_args!($($arg)*)));
+}
+```
+In this example,  `$()*` means like a regular.
+
+[More info](https://rustwiki.org/zh-CN/rust-by-example/macros/repeat.html)
+
 ### OS
 
 This post just decribed VGA Text Mode.
