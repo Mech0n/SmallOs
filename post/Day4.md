@@ -1,6 +1,6 @@
-# [Write an OS in Rust] Day 3
+# [Write an OS in Rust] Day 4
 
-> Today's task is implement the first exception handler followed by [post](https://os.phil-opp.com/testing/)
+> Today's task is implement the first exception handler followed by [post](https://os.phil-opp.com/cpu-exceptions/)
 
 [toc]
 
