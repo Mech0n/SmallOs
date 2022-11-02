@@ -15,10 +15,15 @@ pub extern "C" fn _start() -> !{
 
     println!("Hellow World{}", "!");
 
+    os::init();
+    x86_64::instructions::interrupts::int3();
+
+
     #[cfg(test)]
     test_main();
 
     // panic!("Trigger a panic!");
+    println!("It did not crash!");
     
     loop {}
 }
