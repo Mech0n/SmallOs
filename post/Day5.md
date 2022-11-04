@@ -1,6 +1,7 @@
 # [Write an OS in Rust] Day 5
 
 > Today's task is implemented the double fault handler/GDT/TSS and learned GDT/TSS followed by [post](https://os.phil-opp.com/double-fault-exceptions/#a-stack-overflow-test)
+> Also, I implemented keyboard interrupt handler and timer interrupt handler with Intel 8259 PIC followed by [post](https://os.phil-opp.com/hardware-interrupts/#the-8259-pic)
 
 [toc]
 
@@ -71,4 +72,20 @@ array[1] = 1;
 array[2] = 2;
 
 let array_: [i32; 5] = [1, 2, 3, 4, 5];
+```
+
+##### if let
+
+`if let` can be used to cover the variable to a new value:
+
+```rust
+fn main() {
+   let age = Some(30);
+   println!("{:?}",age);
+   if let Some(age) = age {
+       println!("{}",age);
+   }
+
+   println!("{:?}",age);
+}
 ```

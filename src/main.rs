@@ -30,23 +30,28 @@ pub extern "C" fn _start() -> !{
 
     // stack_overflow();
 
-    
-
-
     #[cfg(test)]
     test_main();
 
     // panic!("Trigger a panic!");
     println!("It did not crash!");
     
-    loop {}
+    // loop {
+    //     // // trigger a deadlock
+    //     // use os::print;
+    //     // for _ in 0..10000 {}
+    //     // print!("-");
+    // }
+
+    os::hlt_loop();
 }
 
 #[cfg(not(test))]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
-    loop {}
+    // loop {}
+    os::hlt_loop();
 }
 
 #[cfg(test)]
