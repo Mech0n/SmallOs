@@ -7,6 +7,7 @@
 
 /// an example integration test named basic_boot 
 /// We don’t need any cfg(test) attributes because integration test executables are never built in non-test mode.
+/// All integration tests are their own executables and completely separate from our main.rs. This means that each test needs to define its own entry point function. 
 
 use core::panic::PanicInfo;
 use os::println;

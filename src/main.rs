@@ -16,7 +16,21 @@ pub extern "C" fn _start() -> !{
     println!("Hellow World{}", "!");
 
     os::init();
-    x86_64::instructions::interrupts::int3();
+    // x86_64::instructions::interrupts::int3();
+
+    // // trigger a page fault
+    // unsafe {
+    //     *(0xdeadbeef as *mut u64) = 42;
+    // };
+
+    // // trigger a reboot. XD
+    // fn stack_overflow() {
+    //     stack_overflow();
+    // }
+
+    // stack_overflow();
+
+    
 
 
     #[cfg(test)]

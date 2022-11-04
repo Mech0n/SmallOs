@@ -13,6 +13,7 @@ use core::panic::PanicInfo;
 
 // make println and serial_println available
 // make the modules public to make them usable outside of our library. 
+pub mod gdt;
 pub mod serial;
 pub mod vga_buffer;
 pub mod interrupts;
@@ -80,5 +81,6 @@ pub fn exit_qemu(exit_code: QemuExitCode) {
 }
 
 pub fn init() {
+    gdt::init();
     interrupts::init_idt();
 }
