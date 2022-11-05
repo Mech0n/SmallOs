@@ -11,12 +11,19 @@
 
 use core::panic::PanicInfo;
 
+#[cfg(test)]
+use bootloader::{entry_point, BootInfo};
+
 // make println and serial_println available
 // make the modules public to make them usable outside of our library. 
 pub mod gdt;
 pub mod serial;
+pub mod memory;
 pub mod vga_buffer;
 pub mod interrupts;
+
+#[cfg(test)]
+entry_point!(test_kernel_main);
 
 pub trait Testable {
     fn run(&self) -> ();
@@ -53,7 +60,8 @@ pub fn test_panic_handler(info: &PanicInfo) -> ! {
 /// cargo test --lib
 #[cfg(test)]
 #[no_mangle]
-pub extern "C" fn _start() -> ! {
+// pub extern "C" fn _start() -> ! {
+fn test_kernel_main(_boot_info: &'static BootInfo) -> ! {
     init();
     test_main();
     // loop {}
