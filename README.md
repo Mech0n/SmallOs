@@ -5,4 +5,4 @@
 - [[Write an OS in Rust] Day 3](./post/Day3.md)
 - [[Write an OS in Rust] Day 4](./post/Day4.md)
 - [[Write an OS in Rust] Day 5](./post/Day5.md)
-- coming soon.
+- [[Write an OS in Rust] Day 6](./post/Day6.md)
