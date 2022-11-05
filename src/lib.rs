@@ -4,6 +4,9 @@
 #![test_runner(crate::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 #![feature(abi_x86_interrupt)]  // for interrupt calling convention
+#![feature(alloc_error_handler)] 
+
+extern crate alloc;
 
 /// make the required functions available to our integration test, 
 /// we need to split off a library from our main.rs, 
@@ -21,6 +24,7 @@ pub mod serial;
 pub mod memory;
 pub mod vga_buffer;
 pub mod interrupts;
+pub mod allocator;
 
 #[cfg(test)]
 entry_point!(test_kernel_main);
@@ -101,4 +105,9 @@ pub fn hlt_loop() -> ! {
     loop {
         x86_64::instructions::hlt();
     }
+}
+
+#[alloc_error_handler]
+fn alloc_error_handler(layout: alloc::alloc::Layout) -> ! {
+    panic!("allocation error: {:?}", layout)
 }
